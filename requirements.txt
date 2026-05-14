@@ -1,0 +1,12 @@
+# MOFAPlusIntegration Plugin Dependencies
+# Multi-Omics Factor Analysis v2 for joint multi-omics integration
+
+# Core data handling
+numpy>=1.24.0
+pandas>=2.0.0
+
+# MOFA+ reference implementation (https://github.com/bioFAM/mofapy2)
+mofapy2>=0.7.0
+
+# mofapy2's optional HDF5 backend for saving the trained model
+h5py>=3.9.0
