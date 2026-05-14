@@ -1,0 +1,19 @@
+# Example MOFAPlusIntegration parameters using the synthetic data.
+# Paths are relative to the directory PluMA is invoked from; adjust as needed.
+
+transcriptomics	example/transcriptomics.csv
+metagenomics	example/metagenomics.csv
+metabolomics	example/metabolomics.csv
+proteomics	example/proteomics.csv
+
+# Optional multi-group MOFA+
+# groups	example/groups.csv
+
+# Synthetic data has 5 true latent factors; ask for a slightly larger budget
+# so MOFA+ can discover them plus prune inactive ones.
+n_factors	8
+max_iter	1000
+convergence_mode	fast
+scale_views	true
+seed	42
+likelihood	gaussian

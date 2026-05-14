@@ -8,7 +8,7 @@ A PluMA plugin wrapping [MOFA+](https://github.com/bioFAM/mofapy2) (Multi-Omics 
 
 MOFA+ decomposes two or more aligned omics matrices (samples × features per modality) into a shared latent factor space plus per-modality feature loadings. Each factor captures co-variation across modalities, so downstream classifiers can regress factor scores against phenotype without paying the cost of high-dimensional, modality-specific feature spaces.
 
-This plugin is the standalone counterpart to the inline `MOFAIntegrator` currently sitting in [`pluma-parkinsons-ai/src/integration/mofa.py`](https://github.com/quinnjr/pluma-parkinsons-ai). Splitting it out matches the convention already established by sibling integration plugins:
+This plugin follows the same convention as sibling integration plugins:
 
 - [SNFIntegration](https://github.com/quinnjr/SNFIntegration) — Similarity Network Fusion
 - [SHAPExplainability](https://github.com/quinnjr/SHAPExplainability) — SHAP feature attribution
@@ -26,6 +26,8 @@ test_mofa_plus_integration.py
 ```
 
 Inputs: per-modality CSVs (subjects × features). Outputs: factor matrix (subjects × n_factors), per-modality feature weights, variance-explained breakdown, and a training summary.
+
+Synthetic test data with embedded shared latent structure is in [`example/`](example/) — regenerate via `python example/generate_test_data.py`.
 
 ## References
 
