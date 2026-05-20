@@ -59,15 +59,17 @@ class TestRun:
         # Synthetic dataset includes known latent factors
         true_factors = pd.read_csv(
             "example/true_factors.csv",
-            index_col=0
+            index_col = 0
         )
 
         recovered = plugin.factors
 
-        correlations = []
+        matched_factors = 0
 
         # MOFA factors are sign/order invariant, so compare absolute correlations across all factor pairs
         for true_col in true_factors.columns:
+
+            best_corr = 0
 
             for recovered_col in recovered.columns:
 
@@ -76,10 +78,14 @@ class TestRun:
                     recovered[recovered_col]
                 )[0, 1]
 
-                correlations.append(abs(corr))
+                best_corr = max(best_corr, abs(corr))
 
-        # At least one recovered factor should strongly match the synthetic ground-truth latent structure
-        assert max(correlations) > 0.7
+            # Count how many true latent factors were successfully recovered
+            if best_corr > 0.7:
+                matched_factors += 1
+
+        # MOFA should recover at least 3 of the 5 synthetic latent factors
+        assert matched_factors >= 3
 
 
 
