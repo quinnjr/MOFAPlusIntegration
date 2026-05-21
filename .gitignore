@@ -46,6 +46,7 @@ htmlcov/
 
 # Generated outputs
 example/output.*
+example/out/
 output/
 
 # Binary artifacts

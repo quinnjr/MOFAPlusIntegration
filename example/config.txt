@@ -1,0 +1,13 @@
+# Minimal PluMA pipeline that drives the MOFAPlusIntegration plugin against
+# the synthetic four-omics fixture in this directory.
+#
+# Run from the repo root:
+#
+#     pluma example/config.txt
+#
+# or via the convenience script (which also stages the plugin and verifies
+# the outputs):
+#
+#     example/run_pluma_example.sh
+Prefix example/
+Plugin MOFAPlusIntegration  inputfile parameters.txt  outputfile out/mofa
